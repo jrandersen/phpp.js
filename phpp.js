@@ -2,7 +2,7 @@ const sheetjs = require('xlsx');
 const element = require('./buildingElements.js')
 
 // file management
-const mainFile = './main_phpp/PHPP2007 SI unpopulated.xls'
+const mainFile = "../main_phpp/2007_SI_unpop.xlsx"
 
 // read mainfile 
 const phppwb = sheetjs.readFile(mainFile);
