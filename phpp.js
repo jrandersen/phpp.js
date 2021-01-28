@@ -29,10 +29,10 @@ const newPHPP = sheetjs.utils.book_new();
 //sheetjs.writeFile(newPHPP, "newPHPP.xlsx")
 
 //materials
-const basicMat0 = new element.Material(0.0233, 6, 100);
-const basicMat1 = new element.Material(0.134, 12, 100);
-const basicMat2 = new element.Material(0.545, 1.75, 100);
-const matArr = [basicMat0, basicMat1];
+const gypsum = new element.Material('87656776id',0.0233, 6, 100);
+const insulation = new element.Material('45679876id', 0.134, 12, 80);
+const stud = new element.Material('123876id', 0.545, 12, 20);
+const matArr = [gypsum, insulation, stud];
 
 //wall
 const wall = new element.Wall('8769876id', 10,8, matArr);
