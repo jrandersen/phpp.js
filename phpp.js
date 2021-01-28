@@ -28,9 +28,17 @@ const newPHPP = sheetjs.utils.book_new();
 //sheetjs.utils.book_append_sheet(newPHPP, newWSPHPP, 'NewName');
 //sheetjs.writeFile(newPHPP, "newPHPP.xlsx")
 
+//materials
+const basicMat0 = new element.Material(0.0233, 6, 100);
+const basicMat1 = new element.Material(0.134, 12, 100);
+const basicMat2 = new element.Material(0.545, 1.75, 100);
+const matArr = [basicMat0, basicMat1];
 
-const wall = new element.Wall('8769876id', 10,2,5);
+//wall
+const wall = new element.Wall('8769876id', 10,8, matArr);
+
+//areas and refdims
 const area = new element.Area('557865id', 10, 20)
 
-console.log(wall, area);
+console.log(wall,);
 
