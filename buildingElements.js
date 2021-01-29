@@ -6,32 +6,29 @@ class Material {
     };
 };
 
-class SimpleMat extends Material {
+
+
+class SingleMat extends Material {
     constructor(id, name, uValue, thickness){
-        super(id, name, uValue)
-        this.thickness
-    }
-}
+        super(id, name, uValue, thickness)
+        this.thickness = thickness;
+    };
+};
 
-class CompoundMat {
-    constructor(matArr, thickness){
-        this.materialArray = matArr
-        this.thickness
-    }     
-}
 
-class CompondMaterial {
-    constructor(id, name_1, uValue_1, percentDistribution_1, name_2, uValue_2, percentDistribution_2, thickness) {
-        this.id = id;
-        //material 1
-        this.name_1 = name_1;
-        this.uValue_1 = uValue_1;
-        this.percentDistribution_1 = percentDistribution_1;
-        //material 2
-        this.name_2 = name_2
-        this.uValue_2 = uValue_2;
-        this.percentDistribution_2 = percentDistribution_2;
-        // overall thickness
+
+class MultiMat extends Material {
+    constructor(id, name, uValue, percent ){
+        super(id, name, uValue, percent)
+        this.percent = percent;
+    };     
+};
+
+
+
+class CompondConstruction {
+    constructor(compoundMatArr, thickness) {
+        this.compoundMatArr = compoundMatArr
         this.thickness = thickness;
     };
 };
@@ -70,5 +67,6 @@ class Area {
 exports.Wall = Wall;
 exports.Area = Area;
 exports.Material = Material;
-exports.SimpleMat = SimpleMat;
-exports.CompondMaterial = CompondMaterial;
+exports.SingleMat = SingleMat;
+exports.MultiMat = MultiMat;
+exports.CompondConstruction = CompondConstruction;

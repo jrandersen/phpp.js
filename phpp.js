@@ -28,11 +28,16 @@ const newPHPP = sheetjs.utils.book_new();
 //sheetjs.utils.book_append_sheet(newPHPP, newWSPHPP, 'NewName');
 //sheetjs.writeFile(newPHPP, "newPHPP.xlsx")
 
-//materials
-const gypsum = new element.Material('87656776id','gypsum',0.0233, .667, 100);
-const center = new element.CompondMaterial('45679876id','insulation', 0.134, 80,'stud', 0.545, 20, 8)
-const matArr = [gypsum, center, gypsum];
+// single Material
+const single = new element.SingleMat('87656776id','Plywood',0.0233,1)
 
+//multi material
+const mat1 = new element.MultiMat('87656776id','Studs',1.233,20)
+const mat2 = new element.MultiMat('87656776id','Insulation',0.300,80)
+
+//compound construction
+const compcon = new element.CompondConstruction([mat1, mat2], 8)
+const matArr = [single, compcon, single]
 //wall
 const wall = new element.Wall('8769876id','wall1',10,8,matArr);
 
