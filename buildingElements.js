@@ -26,7 +26,7 @@ class MultiMat extends Material {
 
 
 
-class CompondConstruction {
+class CompoundConstruction {
     constructor(compoundMatArr, thickness) {
         this.compoundMatArr = compoundMatArr
         this.thickness = thickness;
@@ -69,4 +69,4 @@ exports.Area = Area;
 exports.Material = Material;
 exports.SingleMat = SingleMat;
 exports.MultiMat = MultiMat;
-exports.CompondConstruction = CompondConstruction;
+exports.CompoundConstruction = CompoundConstruction;
