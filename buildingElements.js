@@ -1,13 +1,26 @@
+/**
+ * Creates base Material
+ * @param  {String} id identification of model element/guid for future
+ * @param  {String} name The material Name
+ * @param  {String} uValue The material U-Value for future calculation
+ */
 class Material {
     constructor(id, name, uValue) {
         this.id = id;
         this.name = name;
         this.uValue = uValue;
     };
+    getRvalue() {
+        return 1/this.uValue
+    }
 };
 
 
-
+/**
+ * Extends a material to a single continious material thickness
+ * @param  {String} thickness The overall material thickness
+ * inherits all properties and methods above
+ */
 class SingleMat extends Material {
     constructor(id, name, uValue, thickness){
         super(id, name, uValue, thickness)
@@ -16,7 +29,12 @@ class SingleMat extends Material {
 };
 
 
-
+/**
+ * Extends a material to a Multi material element with a percentage of inclusion
+ * @param  {String} percent The amount (percentage) of this material is contained in the wall
+ * for precise definition please see PHI https://passivehouse.com/04_phpp/04_phpp.htm#PH9 
+ * inherits all properties and methods above
+ */
 class MultiMat extends Material {
     constructor(id, name, uValue, percent ){
         super(id, name, uValue, percent)
@@ -25,7 +43,11 @@ class MultiMat extends Material {
 };
 
 
-
+/**
+ * Create a compound material Array of two or three Multi Materials
+ * @param  {Array} compoundMatArr An array of two or three MultiMats elements
+ * @param  {Number} This is the overall width of this compound material
+ */
 class CompoundConstruction {
     constructor(compoundMatArr, thickness) {
         this.compoundMatArr = compoundMatArr
@@ -34,7 +56,16 @@ class CompoundConstruction {
 };
 
 
-
+/**
+ * Create a wall element with materials and generates full width based on material thyickness
+ * @param  {String} id identification of model element/guid for future
+ * @param  {String} name The name of the wall
+ * @param  {Number} length The full length of the wall
+ * @param  {Number} height The full height of the wall
+ * @param  {Array} matArr An array that contain all SingleMat's and CompoundConstructions of the wall
+ * @method {matThickness} Calculates the overal thickness based on construction.
+ * @returns {Number} sum Is the wall width
+ */
 class Wall {
     constructor(id, name, length, height, matArr){
         this.id = id;
@@ -54,6 +85,11 @@ class Wall {
     };    
 };
 
+
+/**
+ * Create an area element
+ * @param  {String} id identification of model element/guid for future
+ */
 class Area {
     constructor(id, length, width){
         this.id = id;

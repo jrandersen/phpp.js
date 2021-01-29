@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "wrapper around passive house planning package written in javascript",
   "main": "phpp.js",
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jsdoc": "jsdoc-md"
   },
   "author": "andersen.ja@gmail.com",
   "license": "MIT",
+  
   "dependencies": {
+    "jsdoc-md": "^9.1.0",
     "xlsx": "^0.16.9"
   }
 }
