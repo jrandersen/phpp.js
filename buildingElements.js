@@ -1,10 +1,27 @@
 class Material {
-    constructor(id, uValue, thickness, percentDistribution) {
+    constructor(id, name, uValue, thickness) {
         this.id = id;
+        this.name = name;
         this.uValue = uValue;
         this.thickness = thickness;
-        this.percentDistribution = percentDistribution;
     }
+}
+
+class CompondMaterial {
+    constructor(id, name_1, uValue_1, percentDistribution_1, name_2, uValue_2, percentDistribution_2, thickness) {
+        this.id = id;
+        //material 1
+        this.name_1 = name_1;
+        this.uValue_1 = uValue_1;
+        this.percentDistribution_1 = percentDistribution_1;
+        //material 2
+        this.name_2 = name_2
+        this.uValue_2 = uValue_2;
+        this.percentDistribution_2 = percentDistribution_2;
+        // overall thickness
+        this.thickness = thickness;
+    }
+
 }
 class Wall {
     constructor(id, length, height, matArr){
@@ -18,15 +35,7 @@ class Wall {
       let sum = 0;
       for (let i = 0; i < this.construction.length; i++) {
         const element = this.construction[i];
-        const nextElement = this.construction[i+1];
-        console.log(nextElement)
-        if (element.percentDistribution === 100) {
-            sum += element.thickness;
-            console.log('100', sum);
-        }else{
-            sum += element.thickness;
-            console.log('less than 100', sum);
-        }
+        sum += element.thickness;
       }
       return sum;
     }    
@@ -42,6 +51,7 @@ class Area {
 
 
 
-exports.Wall = Wall
-exports.Area = Area
-exports.Material = Material
+exports.Wall = Wall;
+exports.Area = Area;
+exports.Material = Material;
+exports.CompondMaterial = CompondMaterial;
