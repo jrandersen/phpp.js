@@ -30,11 +30,11 @@ const newPHPP = sheetjs.utils.book_new();
 
 //materials
 const gypsum = new element.Material('87656776id','gypsum',0.0233, .667, 100);
-const center = new element.CompondMaterial('45679876id','insulation', 0.134, 80,'stud', 0.545, 20, 12)
+const center = new element.CompondMaterial('45679876id','insulation', 0.134, 80,'stud', 0.545, 20, 8)
 const matArr = [gypsum, center, gypsum];
 
 //wall
-const wall = new element.Wall('8769876id', 10,8, matArr);
+const wall = new element.Wall('8769876id','wall1',10,8,matArr);
 
 //areas and refdims
 const area = new element.Area('557865id', 10, 20)

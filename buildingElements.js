@@ -1,10 +1,23 @@
 class Material {
-    constructor(id, name, uValue, thickness) {
+    constructor(id, name, uValue) {
         this.id = id;
         this.name = name;
         this.uValue = uValue;
-        this.thickness = thickness;
+    };
+};
+
+class SimpleMat extends Material {
+    constructor(id, name, uValue, thickness){
+        super(id, name, uValue)
+        this.thickness
     }
+}
+
+class CompoundMat {
+    constructor(matArr, thickness){
+        this.materialArray = matArr
+        this.thickness
+    }     
 }
 
 class CompondMaterial {
@@ -20,25 +33,28 @@ class CompondMaterial {
         this.percentDistribution_2 = percentDistribution_2;
         // overall thickness
         this.thickness = thickness;
-    }
+    };
+};
 
-}
+
+
 class Wall {
-    constructor(id, length, height, matArr){
+    constructor(id, name, length, height, matArr){
         this.id = id;
-        this.construction = matArr
+        this.name = name;
+        this.construction = matArr;
         this.length = length;
         this.width = this.matThickness();
         this.height = height;  
-    }
+    };
     matThickness(width){
       let sum = 0;
       for (let i = 0; i < this.construction.length; i++) {
         const element = this.construction[i];
         sum += element.thickness;
-      }
+      };
       return sum;
-    }    
+    };    
 };
 
 class Area {
@@ -46,12 +62,13 @@ class Area {
         this.id = id;
         this.length = length;
         this.width = width;
-    }
-}
+    };
+};
 
 
 
 exports.Wall = Wall;
 exports.Area = Area;
 exports.Material = Material;
+exports.SimpleMat = SimpleMat;
 exports.CompondMaterial = CompondMaterial;
